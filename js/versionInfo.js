@@ -34,7 +34,7 @@ let r = Math.random();                          // (no random seed availble for 
 if (r < 0.5) {
 	randCond = "control";
 } else {
-	randCond = "control";
+	randCond = "planning";
 }
 var taskConds = ["baseline", randCond];			// all participants complete same baseline condition
 
