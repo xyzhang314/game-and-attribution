@@ -13,13 +13,18 @@
   align-items: center;
   justify-content: center;
 }
+#logo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 input{
   font-size: 0.5rem;
   margin-left:0.3rem;
 }
 input[type="radio"] {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 24px;
+  height: 24px;
   position: relative;
 }
 form[class="expandable"] {
@@ -37,7 +42,6 @@ legend {
   display: flex;
   justify-content: space-around;
 }
-
 ul {
   display: block;
   list-style-type: disc;
@@ -60,14 +64,13 @@ ul {
 }
 img {
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 6.3rem;
-  height: 1.6rem;
+  margin-bottom: 2rem;
+  height: 2rem;
 }
 h1 {
   display: block;
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 32px;
   margin-block-end: 1.4rem;
   font-weight: bold;
 }
@@ -79,14 +82,14 @@ hr {
   height: 8px;
 }
 p {
-  font-size: 0.4rem;
+  font-size: 24px;
   margin-bottom:0.5rem;
 }
 label{
-  font-size: 0.4rem;
+  font-size: 24px;
 }
 button{
-  font-size: 0.4rem;
+  font-size: 24px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
