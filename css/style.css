@@ -8,8 +8,6 @@
 #noconsent {
   margin-block-start: 0.1em;
   margin-block-end: 0.1em;
-  padding-inline-start: 1rem;
-  padding-inline-end: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,8 +78,8 @@ ul {
   box-shadow: 0 0 32px rgba(42, 42, 42, 0.16);
   margin-top: 1.7rem;
   margin-bottom: 1.7rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 img {
   margin-top: 1rem;
