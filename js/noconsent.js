@@ -33,7 +33,7 @@ const subInfoPage1="<div role=\"main\" class=\"form-all\" box-shadow=0 0 32px rg
     "              <p class=\"MsoNormal\" style=\"font-family:Inter, sans-serif;\"><strong>个人信息填写<\/strong><\/p>"+
     "<form id=\"Info1\">"+
     "   <fieldset>"+
-    "     <p style=\"margin-left:0.3rem; margin-bottom: 0.2rem;\">请输入您的手机号：<\/p>"+
+    "     <p style=\"margin-left:0.3rem; margin-bottom: 0.1rem;\">请输入您的手机号：<\/p>"+
     "     <input type=\"text\" id=\"uphone\" required\/>"+
     // "  <span class=\"validity\"><\/span>"+
     "     <hr width=\"300\" \/>"+
