@@ -129,7 +129,7 @@ export default class PostTaskQuestions extends Phaser.Scene {
     }
 
     nextScene() {
-        this.scene.start('InterventionScene');
+        this.scene.start('TheEnd');
     } 
 }
 

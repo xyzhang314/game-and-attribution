@@ -44,10 +44,10 @@ export default class StartTaskScene extends Phaser.Scene {
 
                     "想要成功收集金币，你需要[color=#d0f4f7]尽最大努力\n"+
                     "快速点击加油按钮[/color]，为神奇雨伞充电，\n"+
-                    " 并且在规定时间内达到路线所需的努力程度。\n"+
+                    " 并在规定时间内达到路线所需的努力程度。\n"+
                     " 收集[color=#d0f4f7]更多金币[/color]的路线需要付出[color=#d0f4f7]更多努力[/color]。\n\n"+
                     
-                    "该部分游戏包括 [color=#d0f4f7]"+nBlocks+" 个小节[/color]，大约需要\n"+
+                    "该游戏共包括 [color=#d0f4f7]"+nBlocks+" 个小节[/color]，大约需要\n"+
                     "[color=#d0f4f7]"+approxTimeTask+" 分钟[/color]，每个小节之间可以自行休息。\n\n"+
 
                     "准备好了吗？请 [b]点击下方按钮[/b] 开始游戏。\n"),

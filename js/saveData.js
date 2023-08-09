@@ -9,23 +9,28 @@ AV.init({
 
 // import task version info
 import { randCond } from "./versionInfo.js";
-
-// database.set("task0Data", object);
-// database.set("task1Data", object);
-// database.set("postTaskData", object);
-
 const Database = AV.Object.extend("Database");
 const database = new Database();
 
-// function to save startData 
+// function to save startData
+var saveSubInfo = function(type, dataToSave){
+        database.add("subInfo", {[type]:dataToSave});
+        database.set("participantOS", navigator.userAgent);
+        database.save();
+}
 var saveStartData = function(startTime) {
-    database.set("date", new Date().toISOString().split('T')[0]);
-    database.set("startTime", new Date().toLocaleTimeString());
-    database.set("condition", randCond);
-    database.set("participantOS", navigator.userAgent);
-    database.set("expCompleted", 0);
-    database.set("taskStartTimePhaser", startTime);
-    database.save();
+    const query = new AV.Query("Database");
+    query.equalTo("participantOS", navigator.userAgent);
+    query
+    .find()
+    .then(function (){
+        database.set("date", new Date().toISOString().split('T')[0]);
+        database.set("startTime", new Date().toLocaleTimeString());
+        database.set("condition", randCond);
+        database.set("expCompleted", 0);
+        database.set("taskStartTimePhaser", startTime);
+        database.save();
+    })
 };
 
 // // function to save the practice data
@@ -92,12 +97,12 @@ var saveEndData = function(){
     .find()
     .then(function(){
         database.set("endTime", new Date().toLocaleTimeString());
-        database.set("expCompleted", 1);;
+        database.set("expCompleted", 1);
         database.save();
     })
 }
 
-export { saveStartData, savePracTaskData, saveTask0Data, saveIntervData, saveTask1Data, savePostTaskData, saveEndData}
+export { saveSubInfo, saveStartData, savePracTaskData, saveTask0Data, saveIntervData, saveTask1Data, savePostTaskData, saveEndData}
 
 // , savePracTaskData, 
 //          saveQuizData, saveIntervention,
