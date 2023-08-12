@@ -41,7 +41,7 @@ export default class InstructionsScene extends Phaser.Scene {
         
         var titleText = '欢迎来到游戏！'
 
-        startTime = Math.round(this.time.now);
+        // startTime = Math.round(this.time.now);
         
         // let's do this the long-winded way for now...[should make this a function]
         ///////////////////PAGE ONE////////////////////
@@ -106,7 +106,7 @@ export default class InstructionsScene extends Phaser.Scene {
     
     
     nextScene() {
-        saveStartData(startTime);           // [for firebase]
+        saveStartData();           // [for leanCloud]
         this.scene.start('PracticeTask');
     } 
 }

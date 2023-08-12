@@ -17,12 +17,23 @@
   align-items: center;
   justify-content: space-between;
 }
-input {
+input{
+  width: 260px;
   display: inline-block;
   border:1px solid;
   font-size: 26px;
-  margin-left:0.3rem;
   border-radius: 4px;
+}
+button[type="button"] {
+  font-size: 24px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  margin-bottom: 8px;
 }
 input[type="radio"] {
   width: 26px;
@@ -34,11 +45,11 @@ fieldset{
   border-radius: 4px;
 }
 button[type=submit] {
-  width: 2rem;
+  width: 3rem;
   background-color: #4CAF50;
   color: white;
   padding: 10px 10px;
-  margin: 8px 0;
+  margin: 16px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -53,13 +64,23 @@ input[id="patient"]:checked ~ form[class="expandable"]{
   display:inline;
 }
 legend {
-  background-color: #000;
+  background-color: #777777;
   color: #fff;
+  margin: auto;
+  border-radius: 4px;
   padding: 6px 8px;
   font-size: 0.5rem;
   /* border-radius: 10px;  */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+fieldset[id="medInfo"]{
+  margin-top:0.5rem;
+  width:20%;
+  margin-left:0.5rem;
 }
 ul {
   display: block;
@@ -104,7 +125,10 @@ p {
   font-size: 26px;
   margin-bottom:0.5rem;
 }
-label{
+label {
+  font-size: 26px;
+}
+label[id="med"] {
   font-size: 26px;
 }
 button{

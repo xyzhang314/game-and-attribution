@@ -10,7 +10,7 @@ import eventsCenter from '../eventsCenter.js'
 import { savePostTaskData } from "../saveData.js";
 
 // initialise global saving vars
-var gamePhase; var questName; var questionNo; var questionText;
+ var questName; var questionNo; var questionText;
 
 // this function extends Phaser.Scene and includes the core logic for the scene
 export default class PostTaskQuestions extends Phaser.Scene {
@@ -30,7 +30,6 @@ export default class PostTaskQuestions extends Phaser.Scene {
         var gameWidth = this.sys.game.config.width;
 
         // quest and task stage vars
-        gamePhase = 'postTask0';
         questName = 'PHQstate';
 
         ///////////////////QUEST1////////////////////

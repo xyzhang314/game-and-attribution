@@ -10,7 +10,7 @@ import QuestionPanel from "../elements/questionPanel.js";
 
 // import our custom events center for passsing info between scenes and relevant data saving function
 import eventsCenter from '../eventsCenter.js'
-import { saveTask0Data, savePostTaskData } from "../saveData.js";
+import { saveTaskData, savePostTaskData } from "../saveData.js";
 
 // import effort info from versionInfo file
 import { effortTime, minPressMax, nBlocks, debugging, maxRews, taskConds } from "../versionInfo.js"; 
@@ -51,7 +51,6 @@ var trialEndTime;
 const practiceOrReal = 1;      
 // initialize task condition variables (can be "baseline", "control", or "planning")
 var taskType;                
-let taskN = 0;
 var gamePhase;
 
 // this function extends Phaser.Scene and includes the core logic for the game
@@ -171,15 +170,7 @@ export default class MainTask extends Phaser.Scene {
         blockLength = Math.round(nTrials/nBlocks);   
         
         // get max press count from practice/callibration round
-        let maxPressCount = this.registry.get('maxPressCount'); 
-        if (debugging == false) { 
-            // and enforce minimum to guard against gaming
-            if (maxPressCount < minPressMax) {
-                maxPressCount = minPressMax;
-            }
-        } else {
-           maxPressCount = 55;
-        }
+        var maxPressCount = 55;
         // set the two trial options info from trial number
         // effort values are now coded as proportions of max press count (max=0.95)
         trialReward1 = trials.reward1[trial];
@@ -458,7 +449,7 @@ var trialEnd = function () {
                                                   condition: taskType
                                                  });
     // save data
-    saveTask0Data("task"+taskN+"_trial"+trial, this.registry.get(`task${taskN}_trial${trial}`));        // [for LeanCloud]
+    saveTaskData("task"+taskN+"_trial"+trial, this.registry.get(`task${taskN}_trial${trial}`));        // [for LeanCloud]
     
     // if end of block 
     if (((trial+1) % blockLength == 0)) {

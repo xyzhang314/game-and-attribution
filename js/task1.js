@@ -1,8 +1,5 @@
 // import js modules that hold the game/experiment scenes
-// instructions and practice/calibration task:
-import InstructionsScene from "./scenes/instructionsScene.js";
-import PracticeTask from "./scenes/practiceTask.js";
-import StartTaskScene from "./scenes/startTaskScene.js";
+import StartTaskScene1 from "./scenes/startTaskScene1.js";
 // first run of task + questions:
 import MainTask from "./scenes/mainTask.js";
 import TaskEndScene from "./scenes/taskEndScene.js";
@@ -31,9 +28,7 @@ const config = {
     },
     backgroundColor: "#d0f4f7",  // pale blue sky color [black="#222222"],
     scene: [//
-            InstructionsScene,
-            PracticeTask,
-            StartTaskScene,
+            StartTaskScene1,
             //
             MainTask, 
             TaskEndScene,
@@ -51,7 +46,7 @@ const config = {
 };
 
 // wrap game creation in a function so that it isn't created until consent completed
-export function runTask0() {
+export function runTask1() {
     // create new phaser game configured as above
     var game = new Phaser.Game(config);  
 

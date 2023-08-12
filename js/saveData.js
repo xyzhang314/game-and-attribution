@@ -1,5 +1,4 @@
 // Helper functions for saving trial data [using LeanCloud]
-
 const { Query, User } = AV;
 AV.init({
           appId: "7yk2g0IxApJ23zLC6w8hW2ml-gzGzoHsz",
@@ -8,106 +7,54 @@ AV.init({
         });
 
 // import task version info
-import { randCond } from "./versionInfo.js";
-const Database = AV.Object.extend("Database");
-const database = new Database();
+var dbCreate = function(dbClass){
+        const Database = AV.Object.extend(dbClass);
+        const database = new Database();
+        window.database = database
+}
 
 // function to save startData
 var saveSubInfo = function(type, dataToSave){
-        database.add("subInfo", {[type]:dataToSave});
-        database.set("participantOS", navigator.userAgent);
-        database.save();
+    database.add("subInfo", {[type]:dataToSave});
+    database.set("phoneNum", phoneNum);
+    database.set("participantOS", navigator.userAgent);
+    database.save();
 }
-var saveStartData = function(startTime) {
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function (){
+
+var saveStartData = function() {
         database.set("date", new Date().toISOString().split('T')[0]);
         database.set("startTime", new Date().toLocaleTimeString());
-        database.set("condition", randCond);
         database.set("expCompleted", 0);
-        database.set("taskStartTimePhaser", startTime);
         database.save();
-    })
 };
 
 // // function to save the practice data
 var savePracTaskData = function(trialN, dataToSave){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function (){
         database.add("practiceData", {[trialN]: dataToSave});
         database.save();
-    })
 }
 //----------------------------------- TASK 0 -------------------------------------------
 // function to save the task0 data
-var saveTask0Data = function(trialN, dataToSave){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function(){
-        database.add("task0Data", {[trialN]: dataToSave});
+var saveTaskData = function(trialN, dataToSave){
+        database.add("taskData", {[trialN]: dataToSave});
         database.save();
-    })
 }
+
 // function to save post-block question data
 var savePostTaskData = function(questN, dataToSave){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function(){
         database.add("postTaskData", {[questN]: dataToSave});
         database.save();
-    })
 }
-// function to save goal OR gameLiking score
-var saveIntervData = function(trialN, dataToSave){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function(){
-        database.add("goalORgame", {[trialN]: dataToSave});
-        database.save();
-    })
-}
-// function to save the task1 data
-var saveTask1Data = function(trialN, dataToSave){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function(){
-        database.add("task1Data", {[trialN]: dataToSave});
-        database.save();
-    })
-}
+
 // function to save end data 
 var saveEndData = function(){
-    const query = new AV.Query("Database");
-    query.equalTo("participantOS", navigator.userAgent);
-    query
-    .find()
-    .then(function(){
         database.set("endTime", new Date().toLocaleTimeString());
         database.set("expCompleted", 1);
         database.save();
-    })
 }
 
-export { saveSubInfo, saveStartData, savePracTaskData, saveTask0Data, saveIntervData, saveTask1Data, savePostTaskData, saveEndData}
+export { dbCreate, saveSubInfo, saveStartData, savePracTaskData, saveTaskData, savePostTaskData, saveEndData}
 
-// , savePracTaskData, 
-//          saveQuizData, saveIntervention,
-//           saveTask0Ques, saveTask0PHQ,
-//          saveTask1Data, saveTask1Ques, saveTask1PHQ, saveEndData
 // {
 //     "reward1": [7,7,4,5,7,7,4,5],
     
