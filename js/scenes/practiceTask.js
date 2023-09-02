@@ -8,7 +8,7 @@ import TimerPanel from "../elements/timerPanelClicks.js";
 
 // import our custom events center for passsing info between scenes annd relevant data saving function
 import eventsCenter from '../eventsCenter.js'
-import { savePracTaskData } from "../saveData.js";
+import { savePracTaskData } from "../saveGameData.js";
 
 // import effort info from versionInfo file
 import { effortTime, pracTrialEfforts, debugging } from "../versionInfo.js";  
@@ -23,7 +23,7 @@ const decisionPointX = 370;    // where the info panel will be triggered (x coor
 const midbridgeX = 735;        // where gems will be displayed (x coord in px)
 const playerVelocity = 1000;   // baseline player velocity (rightward)
 // initialize practice task vars
-var pracTrial = 0; //修改为5即可跳过练习
+var pracTrial = 5; //修改为5即可跳过练习，正常运行设置0
 var nGems = 0;
 var pracTrialRewards = [  4,   2,   6,   8,   5];
 var gemHeights       = [255, 315, 195,  85, 135];

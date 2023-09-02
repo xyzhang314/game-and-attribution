@@ -2,7 +2,7 @@
 
 // import task info from versionInfo file
 import { approxTimeTask, nBlocks } from "../versionInfo.js";  // time participant will have to try and exert effort (ms)
-import { saveStartData } from "../saveData.js";
+import { saveStartData } from "../saveGameData.js";
 // this function extends Phaser.Scene and includes the core logic for the scene
 export default class StartTaskScene extends Phaser.Scene {
     constructor() {
@@ -108,7 +108,7 @@ export default class StartTaskScene extends Phaser.Scene {
     }
     
     nextScene() {
-        saveStartData();
+        saveStartData(taskN);
         this.scene.start('MainTask');
     } 
 }

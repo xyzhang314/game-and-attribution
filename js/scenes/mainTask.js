@@ -10,7 +10,7 @@ import QuestionPanel from "../elements/questionPanel.js";
 
 // import our custom events center for passsing info between scenes and relevant data saving function
 import eventsCenter from '../eventsCenter.js'
-import { saveTaskData, savePostTaskData } from "../saveData.js";
+import { saveTaskData, savePostTaskData } from "../saveGameData.js";
 
 // import effort info from versionInfo file
 import { effortTime, minPressMax, nBlocks, debugging, maxRews, taskConds } from "../versionInfo.js"; 
@@ -247,7 +247,7 @@ export default class MainTask extends Phaser.Scene {
     }
     
     nextScene() {
-        this.scene.start('TaskEndScene');
+        this.scene.start(gameNext);
     }
 }
 

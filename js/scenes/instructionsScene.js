@@ -5,7 +5,7 @@ import InstructionsPanel from "../elements/instructionsPanel.js";
 
 // import our custom events centre for passsing info between scenes and data saving function
 import eventsCenter from "../eventsCenter.js";
-import { saveStartData } from "../saveData.js";
+import { saveStartData } from "../saveGameData.js";
 
 // initialize global start time var
 var startTime;
@@ -104,9 +104,8 @@ export default class InstructionsScene extends Phaser.Scene {
     update(time, delta) {
     }
     
-    
     nextScene() {
-        saveStartData();           // [for leanCloud]
+        saveStartData(taskN);           // [for leanCloud]
         this.scene.start('PracticeTask');
     } 
 }

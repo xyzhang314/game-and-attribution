@@ -4,7 +4,19 @@
  */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
-
+#game-container {
+  margin: 0;
+  padding: 0;
+  font: caption;
+  font-weight: 500;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#game-container > canvas {
+  border-radius: 0px;
+}
 #noconsent {
   margin-block-start: 0.1em;
   margin-block-end: 0.1em;
@@ -18,14 +30,14 @@
   justify-content: space-between;
 }
 input{
-  width: 260px;
+  width: 10em;
   display: inline-block;
   border:1px solid;
-  font-size: 26px;
+  font-size: 2em;
   border-radius: 4px;
 }
 button[type="button"] {
-  font-size: 24px;
+  font-size: 1.8em;
   display: flex;
   margin: auto;
   justify-content: center;
@@ -36,10 +48,21 @@ button[type="button"] {
   margin-bottom: 8px;
 }
 input[type="radio"] {
-  width: 26px;
-  height: 26px;
+  width: 0.8em;
+  height: 0.7em;
   position: relative;
   margin-left:0.3rem;
+}
+optgroup{
+  font-size: 0.5em;
+}
+option{
+  font-size: 1em;
+}
+select{
+  font-size: 2em;
+  border:1px solid;
+  border-radius: 4px;
 }
 fieldset{
   border-radius: 4px;
@@ -63,13 +86,19 @@ form[class="expandable"] {
 input[id="patient"]:checked ~ form[class="expandable"]{
   display:inline;
 }
+form[class="expandable"] {
+  display:none;
+}
+input[id="patient"]:checked ~ form[class="expandable"]{
+  display:inline;
+}
 legend {
   background-color: #777777;
   color: #fff;
   margin: auto;
   border-radius: 4px;
   padding: 6px 8px;
-  font-size: 0.5rem;
+  font-size: 2em;
   /* border-radius: 10px;  */
   display: flex;
   justify-content: center;
@@ -102,17 +131,30 @@ ul {
   margin-left: 1em;
   margin-right: 1em;
 }
-img {
+img[class="form-image"] {
   margin-top: 1rem;
   margin-bottom: 2rem;
   height: 2rem;
 }
+img[class="attribution-image"] {
+  margin-top: 2.2em;
+  margin-bottom: 0.5rem;
+  height: 6rem;
+}
 h1 {
   display: block;
   text-align: center;
-  font-size: 32px;
-  margin-block-end: 1.4rem;
+  font-size: 2.7em;
+  margin-block-end: 2.2em;
+  margin-block-start: 2.2em;
   font-weight: bold;
+}
+h2 {
+  display: block;
+  text-align: center;
+  font-size: 2.7em;
+  font-weight: bold;
+  margin-bottom: 2.8em;
 }
 hr {
   border: none;
@@ -122,17 +164,31 @@ hr {
   height: 8px;
 }
 p {
-  font-size: 26px;
-  margin-bottom:0.5rem;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }
 label {
-  font-size: 26px;
+  font-size: 2em;
 }
 label[id="med"] {
-  font-size: 26px;
+  font-size: 2em;
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.3em;
+}
+label[class="jspsych-survey-likert-opt-label"]{
+  font-size: 2em;
+  line-height: 1.5em;
+}
+label[class="jspsych-survey-likert-statement"]{
+  font-size: 2em;
+  margin-bottom: 0.8em;
+  padding-top: 3em;
+  display: block;
 }
 button{
-  font-size: 26px;
+  font-size: 2em;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -157,9 +213,15 @@ button{
  }
 
  .jspsych-content {
-   max-width: 75%; /* this is mainly an IE 10-11 fix */
+   max-width: 60%; /* this is mainly an IE 10-11 fix */
    text-align: center;
    margin: auto; /* this is for overflowing content */
+ }
+
+ .instr-box {
+  float: left;
+  inline-size: 600px;
+  overflow-wrap: break-word;
  }
 
  .jspsych-top {
@@ -167,30 +229,40 @@ button{
  }
 
  .jspsych-middle {
-   align-items: center;
+   align-items: top;
  }
 
 /* fonts and type */
 .jspsych-display-element {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px;
-  line-height: 1em;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
 }
 
 /* Form elements like input fields and buttons */
 .jspsych-display-element input[type="text"] {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px,22px,24px;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 2em;
+}
+
+#jspsych-html-button-response-stimulus {
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.jspsych-html-button-response-btngroup {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* borrowing Bootstrap style for btn elements, but combining styles a bit */
 .jspsych-btn {
   display: inline-block;
-  padding: 0px;
+  padding: 6px 12px;
   margin: 0px;
-  font-size: 20px;
+  font-size: 2em;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Open Sans', 'Arial', sans-serif;
   cursor: pointer;
   line-height: 1.4;
   text-align: center;
@@ -198,10 +270,13 @@ button{
   vertical-align: middle;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 4px;
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+  width: auto;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
 }
 
 .jspsych-btn:hover {
@@ -215,6 +290,208 @@ button{
   border-color: #ccc;
   cursor: not-allowed;
 }
+.jspsych-survey-likert-opts {
+  list-style: none;
+  width: 600px;
+  margin: auto;
+  padding: 0 0 35px;
+  display: contents;
+  font-size: 2em;
+  line-height: 24px;
+}
+.jspsych-survey-likert-opts:before {
+  content: '';
+  position: relative;
+  top: 1.3em;
+  /* left: 9.5%; */
+  display: contents;
+  background-color: #e7e7e7;
+  height: 4px;
+  width: 100%;
+}
+.jspsych-survey-likert-opts li input[type=radio]{
+  display: block;
+  position: relative;
+  top: 0;
+  height: 0.5em;
+  margin: auto;
+}
+.jspsych-survey-likert-statement {
+  display: block;
+  font-size: 2em;
+  padding-top: 2.7em;
+  margin-bottom: 1em;
+  line-height: normal;
+}
+/* custom style for input[type="range] (slider) to improve alignment between positions and labels */
+.jspsych-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+.jspsych-slider:focus {
+  outline: none;
+}
+
+/* track */
+.jspsych-slider::-webkit-slider-runnable-track {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+.jspsych-slider::-moz-range-track {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+.jspsych-slider::-ms-track {
+  appearance: none;
+  width: 99%;
+  height: 14px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+/* thumb */
+.jspsych-slider::-webkit-slider-thumb {
+  border: 1px solid #666;
+  height: 24px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+
+.jspsych-slider::-moz-range-thumb {
+  border: 1px solid #666;
+  height: 24px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.jspsych-slider::-ms-thumb {
+  border: 1px solid #666;
+  height: 20px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
+#stimulus {
+  font-size: 30px;
+}
+
+/*css thought bubble based on code by grant (https://codepen.io/quadbaup/pen/rKOKQv)*/
+.thought {
+  transform: translatey(0px);
+  animation: float 5s ease-in-out infinite;
+  display:flex;
+  background-color:#fff;
+  padding:30px;
+  border-radius:30px;
+  min-width:40px;
+  max-width:220px;
+  min-height:40px;
+  margin:20px;
+  position:relative;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size: 26px;
+  line-height: 1.2;
+  box-shadow: 20px 20px #83af9b;
+}
+.thought::after {
+  content:"";
+  background-color:#fff;
+  border-radius:50%;
+  display:block;
+  position: absolute;
+  z-index: -1;
+}
+.thought::after {
+  content:"";
+  bottom:-10px;
+  right:26px;
+  width:30px;
+  height:30px;
+  box-shadow:40px -34px 0 0 #fff,
+             -28px -6px 0 -2px #fff,
+             -24px 17px 0 -6px #fff,
+             -5px 25px 0 -10px #fff;
+}
+.thought:hover {
+  background-color: lightskyblue;
+  border-color: #aaa;
+  cursor: pointer;
+}
+.thought:responded {
+  border-color: #ccc;
+}
+.thought:disabled {
+  background-color: #eee;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*misc styling for intervention examples*/
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  /*quotes: "\201C""\201D""\2018""\2019";*/
+}
+blockquote:before {
+  color: #ccc;
+/*  content: open-quote;*/
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+.float-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+}
+
+.float-child {
+  float:left;
+  text-align: center;
+  margin-right: 10px;
+} 
 
 /* jsPsych progress bar */
 #jspsych-progressbar-container {

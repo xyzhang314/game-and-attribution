@@ -2,10 +2,10 @@
 import StartTaskScene1 from "./scenes/startTaskScene1.js";
 // first run of task + questions:
 import MainTask from "./scenes/mainTask.js";
-import TaskEndScene from "./scenes/taskEndScene.js";
+import GameEndScene from "./scenes/taskEndScene.js";
 import PostTaskQuestions from "./scenes/postTaskQuestions.js";
 // finish up and return to any other content:
-import TheEnd from "./scenes/theEnd.js";
+import TheEndSecond from "./scenes/theEnd_second.js";
 
 // allow access to mobile devices?
 import { allowDevices } from "./versionInfo.js";
@@ -31,10 +31,10 @@ const config = {
             StartTaskScene1,
             //
             MainTask, 
-            TaskEndScene,
+            GameEndScene,
             PostTaskQuestions,
             //
-            TheEnd
+            TheEndSecond
             ],              // construct the experiment from componenent scenes
     plugins: {
         scene: [{
@@ -46,7 +46,7 @@ const config = {
 };
 
 // wrap game creation in a function so that it isn't created until consent completed
-export function runTask1() {
+export function runTask1Second() {
     // create new phaser game configured as above
     var game = new Phaser.Game(config);  
 

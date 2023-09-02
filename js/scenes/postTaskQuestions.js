@@ -7,7 +7,7 @@ import MultipleChoicePanel from "../elements/multipleChoicePanel.js";
 import eventsCenter from '../eventsCenter.js'
 
 // import relevant data saving function
-import { savePostTaskData } from "../saveData.js";
+import { savePostTaskData } from "../saveGameData.js";
 
 // initialise global saving vars
  var questName; var questionNo; var questionText;
@@ -128,7 +128,7 @@ export default class PostTaskQuestions extends Phaser.Scene {
     }
 
     nextScene() {
-        this.scene.start('TheEnd');
+        this.scene.start('TheEndSecond');
     } 
 }
 

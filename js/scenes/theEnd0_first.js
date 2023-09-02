@@ -7,14 +7,14 @@ import InstructionsPanel from "../elements/instructionsPanel.js";
 import eventsCenter from "../eventsCenter.js";
 
 // import relevant data saving function
-import { saveEndData } from "../saveData.js";
-//import { runQuests } from "../selfReports.js";
+import { saveEndData } from "../saveGameData.js";
+import { runStudy0Second } from "../constructStudy0_second.js"
 
 // This function extends Phaser.Scene and includes the core logic for the scene
-export default class TheEnd extends Phaser.Scene {
+export default class TheEnd0First extends Phaser.Scene {
     constructor() {
         super({
-            key: 'TheEnd'
+            key: 'TheEnd0First'
         });
     }
 
@@ -31,21 +31,21 @@ export default class TheEnd extends Phaser.Scene {
         var gameHeight = this.sys.game.config.height;
         var gameWidth = this.sys.game.config.width;
 
-        // save task data backup
-        saveEndData();
-
-        var titleText = '感谢参与！'
+        var titleText = '第一部分完成！'
         ///////////////////PAGE ONE////////////////////
-        var mainTxt = ("  游戏结束啦！\n" +
+        var mainTxt = ("  测验的第一部分结束！\n" +
                        "  请点击下方按钮。\n");
-        var buttonTxt = "完成";
+        var buttonTxt = "继续";
         var pageNo = 1;
         this.endPanel2 = new InstructionsPanel(this, gameWidth/2, gameHeight/2,
                                                 pageNo, titleText, mainTxt, buttonTxt);
         // end scene
         eventsCenter.once('page1complete', function () {
             document.getElementById('game-container').style.display = "none";
-            //runQuests();
+            // save task data backup
+            saveEndData(taskN);
+            runStudy0Second(); //game then choice
+            // window.removeEventListener('resize', resizeApp);
         }, this);
     }
     

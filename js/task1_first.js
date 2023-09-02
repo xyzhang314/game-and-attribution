@@ -1,14 +1,11 @@
 // import js modules that hold the game/experiment scenes
-// instructions and practice/calibration task:
-import InstructionsScene from "./scenes/instructionsScene.js";
-import PracticeTask from "./scenes/practiceTask.js";
-import StartTaskScene from "./scenes/startTaskScene.js";
+import StartTaskScene1 from "./scenes/startTaskScene1.js";
 // first run of task + questions:
 import MainTask from "./scenes/mainTask.js";
-import TaskEndScene from "./scenes/taskEndScene.js";
-import PostTaskQuestions from "./scenes/postTaskQuestions.js";
+import GameEndScene from "./scenes/taskEndScene.js";
+// import PostTaskQuestions from "./scenes/postTaskQuestions.js";
 // finish up and return to any other content:
-import TheEnd from "./scenes/theEnd.js";
+import TheEnd1First from "./scenes/theEnd1_first.js";
 
 // allow access to mobile devices?
 import { allowDevices } from "./versionInfo.js";
@@ -31,15 +28,12 @@ const config = {
     },
     backgroundColor: "#d0f4f7",  // pale blue sky color [black="#222222"],
     scene: [//
-            InstructionsScene,
-            PracticeTask,
-            StartTaskScene,
+            StartTaskScene1,
             //
             MainTask, 
-            TaskEndScene,
-            PostTaskQuestions,
+            GameEndScene,
             //
-            TheEnd
+            TheEnd1First
             ],              // construct the experiment from componenent scenes
     plugins: {
         scene: [{
@@ -51,7 +45,7 @@ const config = {
 };
 
 // wrap game creation in a function so that it isn't created until consent completed
-export function runTask0() {
+export function runTask1First() {
     // create new phaser game configured as above
     var game = new Phaser.Game(config);  
 
@@ -64,7 +58,8 @@ export function runTask0() {
         // let div = document.getElementById('game-container');
         // div.width  = '0px';
         // div.height = '0px';
-        
+        if (document.body.className==' jspsych-display-element'){
+            return}
         // // Check if device DPI messes up the width-height-ratio
         let canvas  = document.getElementsByTagName('canvas')[0];
         var windowWidth = window.innerWidth;
